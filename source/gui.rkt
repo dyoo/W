@@ -110,9 +110,9 @@
           (set! game-over? #t)))
       
       (let-values (((w h) (get-client-size)))
-        (render game (get-dc) 
-                (floor* w *scale*) 
-                (floor* h *scale*)))
+          (render game (get-dc) 
+                  (floor* w *scale*) 
+                  (floor* h *scale*)))
       
       (play-effects (send game get-sounds))
       (set! frames (add1 frames)))

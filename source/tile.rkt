@@ -133,4 +133,3 @@
   (and (tile-active? t) 
        (let ((td (teleport-dest t)))
          (if (eq? td 'none) #f (tile-pos td)))))
-  

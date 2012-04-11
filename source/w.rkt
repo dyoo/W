@@ -2,7 +2,8 @@
 (require racket/gui/base
          racket/class
          "gui.rkt"
-         "core.rkt")
+         "core.rkt"
+         profile)
 
 
 (define (make-solid-bitmap w h col)
@@ -22,8 +23,8 @@
     (make-object
         (class frame%
           (define/augment (on-close)
-              (semaphore-post semaphore)
-              (inner (void) on-close))
+            (semaphore-post semaphore)
+            (inner (void) on-close))
           (super-new)) (*game-name*)))
   
   (define w-canvas (make-object w-canvas% frame))
@@ -36,13 +37,13 @@
   (when (*debug*)
     (let ((bblit (make-solid-bitmap 16 16 "blue"))
           (wblit (make-solid-bitmap 16 16 "white")))
-    (register-collecting-blit w-canvas 2 2 16 16 bblit wblit)))
-
+      (register-collecting-blit w-canvas 2 2 16 16 bblit wblit)))
+  
   (send w-canvas start)
   (void (yield semaphore))
   (send w-canvas stop))
 
-(main)
+(profile (main))
 
 
 

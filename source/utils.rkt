@@ -4,8 +4,8 @@
 
 
 #;(define (replace-all list replacements)
-  (map (λ (e) (let ((a (assoc e replacements)))
-                (if a (cdr a) e))) list))
+    (map (λ (e) (let ((a (assoc e replacements)))
+                  (if a (cdr a) e))) list))
 (define (ensure-list x) (if (list? x) x (list x)))
 (define (alist-get x alist [otherwise (λ _ #f)])
   (let ((e (assoc x alist))) (if e (cdr e) (otherwise x))))
@@ -70,9 +70,9 @@
 
 (define (get-delta dir) 
   (alist-get dir '((up    . (0 . -1)) 
-                    (down  . (0 . +1))
-                    (left  . (-1 . 0)) 
-                    (right . (+1 . 0)))))
+                   (down  . (0 . +1))
+                   (left  . (-1 . 0)) 
+                   (right . (+1 . 0)))))
 
 (define (opposite dir)
   (case dir 
@@ -114,4 +114,4 @@
      (let ((var val))
        (if var (let rest then) else))]))
 
-       
+
