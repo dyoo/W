@@ -2,7 +2,6 @@
 (require racket/gui/base
          racket/class
          "gui.rkt"
-         "utils.rkt"
          "core.rkt")
 
 
